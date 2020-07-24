@@ -45,8 +45,20 @@ module.exports = {
       template: `${__dirname}/static/index.html`
     }),
     ...(IS_PROD
-      ? [new CompressionPlugin({ test: /\.(js|css|html|svg)$/ }), new BrotliPlugin({ test: /\.(js|css|html|svg)$/ })]
-      : [])
+      
+      ? [        
+          new CompressionPlugin({ test: /\.(js|css|html|svg)$/ }),
+          new BrotliPlugin({ test: /\.(js|css|html|svg)$/ }),
+          new CopyWebpackPlugin({
+            patterns: [
+              {
+                from: path.resolve(__dirname, "./static/images"),
+                to: "./images"
+              }
+            ]
+          }) 
+      ]
+    : [])
   ],
   optimization: {
     splitChunks: {

@@ -1,3 +1,6 @@
+const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 module.exports = ({ config }) => {
   // looks like storybook having trouble with emotion as for now => manually configuration webpack
 
@@ -20,5 +23,17 @@ module.exports = ({ config }) => {
     use: [require.resolve("babel-loader"), require.resolve("react-docgen-typescript-loader")]
   });
   config.resolve.extensions.push(".ts", ".tsx");
+
+  config.plugins.push(
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, './../static/images'),
+          to: './images'
+        }
+      ]
+    })
+  );
+
   return config;
 };
