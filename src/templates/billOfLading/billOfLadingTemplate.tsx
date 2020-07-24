@@ -1,20 +1,22 @@
 import React, { FunctionComponent } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "./style.css";
+//import "./style.css";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { BLCertificate } from "../billOfLadingSample";
 
 const borderStyle = {
   borderStyle: "solid",
   borderWidth: 0.5,
-  borderColor: "#000"
+  borderColor: "#000",
+  margin: 0,
+  padding: 0
 };
 
 const smallText = (text: string): JSX.Element => <div style={{ fontSize: "0.8em" }}>{text}</div>;
 
 const Section3 = (): JSX.Element => (
   <div style={borderStyle}>
-    <div className="row">
+    <div className="row" style={{flex: 6, margin: 0, padding: 0 }}>
       <div className="col-3 p-2" style={{ minHeight: 100, ...borderStyle }}>
         {smallText("Freight & Charges")}
       </div>
@@ -35,17 +37,17 @@ const Section3 = (): JSX.Element => (
       </div>
     </div>
 
-    <div className="row">
-      <div className="col-6 d-flex flex-column">
+    <div className="row" style={{flex: 3, margin: 0, padding: 0 }}>
+      <div className="col-6 d-flex flex-column" style={{flex: 6, margin: 0, padding: 0 }}>
         {/* Row1 */}
-        <div className="d-flex" style={{ flex: 1 }}>
+        <div className="d-flex" style={{flex: 6, margin: 0, padding: 0 }}>
           <div className="p-2 col-6" style={{ ...borderStyle }}>
             {smallText(
               "Carrier's Receipt (see clause 1 and 14). Total number of containers or packages received by Carrier."
             )}
             <div>1 container</div>
           </div>
-          <div className="d-flex flex-column col-6">
+          <div className="d-flex flex-column col-6" style={{flex: 3, margin: 0, padding: 0 }}>
             <div className="p-2" style={{ flex: 1, ...borderStyle }}>
               {smallText("Place of Issue of B/L")}
             </div>
@@ -53,12 +55,12 @@ const Section3 = (): JSX.Element => (
         </div>
 
         {/* Row2 */}
-        <div className="d-flex" style={{ flex: 1 }}>
+        <div className="d-flex" style={{flex: 3, margin: 0, padding: 0 }}>
           <div className="p-2 col-6" style={{ ...borderStyle }}>
             {smallText("Number & Sequence of Original B(s)/L")}
             THREE/3
           </div>
-          <div className="d-flex flex-column col-6">
+          <div className="d-flex flex-column col-6" style={{flex: 3, margin: 0, padding: 0 }}>
             <div className="p-2" style={{ flex: 1, ...borderStyle }}>
               {smallText("Date of Issue of B/L")}
             </div>
@@ -70,7 +72,7 @@ const Section3 = (): JSX.Element => (
           <div className="p-2 col-6" style={{ ...borderStyle }}>
             {smallText("Declared Value (see clause 7.3)")}
           </div>
-          <div className="d-flex flex-column col-6">
+          <div className="d-flex flex-column col-6" style={{flex: 3, margin: 0, padding: 0 }}>
             <div className="p-2" style={{ flex: 1, ...borderStyle }}>
               {smallText("Shipped on Board Date (Local Time)")}
             </div>
@@ -102,7 +104,7 @@ const Section2 = (document: BLCertificate): JSX.Element => {
   const renderedMeasurement = packages.map((pkg, index) => <div key={index}>{pkg.measurement}</div>);
 
   return (
-    <div className="row" style={borderStyle}>
+    <div className="row" style={borderStyle} >
       <div className="col-8 p-2" style={borderStyle}>
         <div style={{ fontSize: "0.8em" }}>
           Kind of Packages: Description of goods, Marks and Numbers: Container No./Serial No.
@@ -136,8 +138,8 @@ const Section1 = (document: BLCertificate): JSX.Element => {
             <img style={{ width: "200px" }} src="/images/common/atlanticLogistics.svg"/>
           </div>
         </div>
-        <div className="d-flex col-6">
-          <div className="d-flex" style={{ flex: 1 }}>
+        <div className="d-flex col-6" style={{ flex: 5, padding:0 }}>
+          <div className="d-flex" style={{ flex: 5 }}>
             <div className="p-2" style={{ flex: 5, ...borderStyle }}>
               <strong>BILL OF LADING FOR OCEAN TRANSPORT OR MULTIMODAL TRANSPORT</strong>
             </div>
@@ -163,7 +165,7 @@ const Section1 = (document: BLCertificate): JSX.Element => {
             <div>{(shipper.address && shipper.address.country) || ""}</div>
           </div>
         </div>
-        <div className="col-6 d-flex flex-column justify-content-between">
+        <div className="col-6 d-flex flex-column justify-content-between" style={{ padding:0 }}>
           <div className="p-1" style={{ flex: 1, ...borderStyle }}>
             <div style={{ fontSize: "0.8em" }}>Booking No</div>
             <div>{blNumber}</div>
@@ -238,13 +240,13 @@ const Section1 = (document: BLCertificate): JSX.Element => {
 
 export const BillOfLadingTemplate: FunctionComponent<TemplateProps<BLCertificate>> = ({ document }) => (
   // Section 1
-  <div className="container">
+  <div className="container" >
     {Section1(document)}
     <br />
     <div className="text-center">
       <strong>PARTICULARS FURNISHED BY SHIPPER</strong>
     </div>
-    {Section2(document)}
+    {Section2(document) }
     <br />
     {Section3()}
   </div>
