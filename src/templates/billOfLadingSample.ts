@@ -23,12 +23,12 @@ export interface BLCertificate extends Document {
 }
 
 export const blCertificate: BLCertificate = {
-  blNumber: ("BL"+Math.floor(Math.random()*(999999)+100000)),
+  blNumber: ("BL"+new Number(Math.floor(Math.random()*(999999)+100000))).toString(),
   packages: [
     {
       description: "description",
-      weight: Math.floor(Math.random()*(999)+1),
-      measurement: Math.floor(Math.random()*(999)+1)
+      weight: new Number(Math.floor(Math.random()*(999)+1)).toString(),
+      measurement: new Number(Math.floor(Math.random()*(999)+1)).toString()
     }
   ],
   shipper: {
@@ -38,8 +38,8 @@ export const blCertificate: BLCertificate = {
       country: "SINGAPORE"
     }
   },
-  vessel: "Atlantic Gold "+Math.floor(Math.random()*(999)+1),
-  voyageNo: "VOG"+Math.floor(Math.random()*(999)+1),
+  vessel: "Atlantic Gold "+new Number(Math.floor(Math.random()*(999)+1)).toString(),
+  voyageNo: "VOG"+new Number(Math.floor(Math.random()*(999)+1)).toString(),
   consignee: {
     name: "Consignee name"
   },
