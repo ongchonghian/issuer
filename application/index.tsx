@@ -6,18 +6,7 @@ import { App } from "./app";
 ReactDOM.render(
   <App
     documents={[
-      { name: "Default document", document: billOfLadingSample },
-      {
-        name: "Red document",
-        document: {
-          ...billOfLadingSample,
-          foo: "bar",
-          $template: {
-            ...billOfLadingSample.$template,
-            name: "red"
-          }
-        }
-      }
+      { name: "Default document", document: billOfLadingSample }
     ]}
   />,
   document.getElementById("root")

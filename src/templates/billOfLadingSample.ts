@@ -41,8 +41,7 @@ export const blCertificate: BLCertificate = {
   vessel: "Atlantic Gold "+new Number(Math.floor(Math.random()*(999)+1)).toString(),
   voyageNo: "VOG"+new Number(Math.floor(Math.random()*(999)+1)).toString(),
   consignee: {
-    name: "Consignee name",
-    type: "65d59584-0191-4e1c-855d-f5580d1cb798:string:To the owner of"
+    name: "Consignee name"
   },
   notifyParty: {
     name: "Notify Party Name"
