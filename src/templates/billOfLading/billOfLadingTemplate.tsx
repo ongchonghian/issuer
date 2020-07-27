@@ -86,7 +86,7 @@ const Section3 = (): JSX.Element => (
           )}
         </div>
         <div className="text-center mt-3 mb-5">
-          <strong>{smallText("Signed for the Carrier - Atlantic Logistics A/S trading as Atlantic Logistics")}</strong>
+          <strong>{smallText("Signed for the Carrier - Atlantic Carrier A/S trading as Atlantic Carrier")}</strong>
         </div>
         <hr />
         <div className="text-center mt-2">
@@ -135,7 +135,7 @@ const Section1 = (document: BLCertificate): JSX.Element => {
       <div className="d-flex">
         <div className="p-2 col-6" style={{ ...borderStyle }}>
           <div className="d-flex align-items-center justify-content-center h-100 text-center">
-            <img style={{ width: "200px" }} src="/images/common/atlanticLogistics.svg"/>
+            <img style={{ width: "200px" }} src="/images/common/atlanticCarrier.svg"/>
           </div>
         </div>
         <div className="d-flex col-6" style={{ flex: 5, padding:0 }}>
